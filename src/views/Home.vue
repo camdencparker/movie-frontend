@@ -51,65 +51,6 @@ export default {
 <template>
   <div class="home">
     <h1>{{ message }}</h1>
-    <div v-for="movie in movies" v-bind:key="movie.id">
-      <h1>Movie ID: {{ movie.id }}</h1>
-      <h2>Movie: {{ movie.title }}</h2>
-      <h4>Year: {{ movie.year }}</h4>
-      <h3>Plot: {{ movie.plot }}</h3>
-      <h4>Directors: {{ movie.director }}</h4>
-    </div>
-    <div>
-      <h1>Create Movie</h1>
-      <p>
-        Title:
-        <input type="text" v-model="newMovie.title" />
-      </p>
-      <p>
-        Year:
-        <input type="text" v-model="newMovie.year" />
-      </p>
-      <p>
-        Plot:
-        <input type="text" v-model="newMovie.plot" />
-      </p>
-      <p>
-        Director:
-        <input type="text" v-model="newMovie.director" />
-      </p>
-      <button v-on:click="createMovie()">Create</button>
-    </div>
-    <div>
-      <h1>Update Movie</h1>
-      <p>
-        Id:
-        <input type="text" v-model="changeMovie.id" />
-      </p>
-      <p>
-        Title:
-        <input type="text" v-model="changeMovie.title" />
-      </p>
-      <p>
-        Year:
-        <input type="text" v-model="changeMovie.year" />
-      </p>
-      <p>
-        Plot:
-        <input type="text" v-model="changeMovie.plot" />
-      </p>
-      <p>
-        Director:
-        <input type="text" v-model="changeMovie.director" />
-      </p>
-      <button v-on:click="updateMovie()">Commit</button>
-    </div>
-    <div>
-      <h1>Delete Movie</h1>
-      <p>
-        Id:
-        <input type="text" v-model="changeMovie.id" />
-      </p>
-      <button v-on:click="destroyMovie()">Delete Movie</button>
-    </div>
   </div>
 </template>
 
