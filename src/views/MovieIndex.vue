@@ -4,10 +4,18 @@ export default {
   data: function () {
     return {
       movies: [],
+      titleFilter: "",
     };
   },
   created: function () {
     this.indexMovies();
+  },
+  computed: {
+    filterMovies: function () {
+      return this.movies.filter((movie) => {
+        return movie.title.toLowerCase().includes(this.titleFilter.toLowerCase());
+      });
+    },
   },
   methods: {
     indexMovies: function () {
@@ -23,6 +31,10 @@ export default {
 <template>
   <div class="movies-index">
     <h1>All Movies</h1>
+    {{ titlefilter }}
+    <p>Search by title
+      <input v-model="titlefilter">
+    </p>
     <div v-for="movie in movies" v-bind:key="movie.id">
       <h2>{{ movie.title }}</h2>
       <p>Year: {{ movie.year }}</p>

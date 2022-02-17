@@ -6,7 +6,6 @@ import Logout from "../views/Logout.vue";
 import MovieIndex from "../views/MovieIndex.vue";
 import MovieNew from "../views/MovieNew.vue";
 import MovieShow from "../views/MovieShow.vue";
-
 const routes = [
   {
     path: "/",

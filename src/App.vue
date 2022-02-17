@@ -1,18 +1,44 @@
+<script>
+export default {
+  data: function () {
+    return {
+      isLoggedIn: !!localStorage.jwt,
+      flashMessage: null,
+    };
+  },
+  watch: {
+    $route: function () {
+      this.isLoggedIn = !!localStorage.jwt;
+      this.flashMessage = localStorage.flashMessage;
+      localStorage.removeItem("flashMessage");
+    },
+  },
+  methods: {
+    loggedIn: function () {
+      return localStorage.getItem("jwt");
+    },
+  },
+};
+</script>
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link>
     |
     <router-link to="/about">About</router-link>
     |
-    <router-link to="/signup">Signup</router-link>
+    <router-link v-if="!isLoggedIn" to="/signup">Signup</router-link>
     |
-    <router-link to="/login">Log In</router-link>
+    <router-link v-if="!isLoggedIn" to="/login">Log In</router-link>
     |
-    <router-link to="/logout">Log Out</router-link>
+    <span v-if="loggedIn()">
+      <router-link v-if="isLoggedIn" to="/logout">Log Out</router-link>
+    </span>
     |
     <router-link to="/movies">All Movies</router-link>
     |
-    <router-link to="/movies/new">Create Movie</router-link>
+    <span v-if="loggedIn()">
+      <router-link to="/movies/new">Create Movie</router-link>
+    </span>
   </div>
   <router-view />
 </template>
