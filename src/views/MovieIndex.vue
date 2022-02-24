@@ -31,15 +31,24 @@ export default {
 <template>
   <div class="movies-index">
     <h1>All Movies</h1>
-    {{ titlefilter }}
-    <p>Search by title
-      <input v-model="titlefilter">
+    <p>
+      Search by title
+      <input v-model="titlefilter" />
     </p>
     <div v-for="movie in movies" v-bind:key="movie.id">
       <h2>{{ movie.title }}</h2>
-      <p>Year: {{ movie.year }}</p>
-      <p>Plot: {{ movie.plot }}</p>
+      <p>
+        <b>Year:</b>
+        <b>{{ movie.year }}</b>
+      </p>
+      <p>
+        <b>Plot:</b>
+        {{ movie.plot }}
+      </p>
       <router-link v-bind:to="`/movies/${movie.id}`">More details</router-link>
+      <br />
+      <em>Have You Seen This Film? if so check the box</em>
+      <input type="checkbox" />
     </div>
   </div>
 </template>

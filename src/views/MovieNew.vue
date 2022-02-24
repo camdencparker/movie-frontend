@@ -25,28 +25,40 @@ export default {
 };
 </script>
 <template>
-  <div>
-    <h1>Create Movie</h1>
-    <p>
-      Title:
-      <input type="text" v-model="newMovie.title" />
-    </p>
-    <p>
-      Year:
-      <input type="text" v-model="newMovie.year" />
-    </p>
-    <p>
-      Plot:
-      <input type="text" v-model="newMovie.plot" />
-    </p>
-    <p>
-      Director:
-      <input type="text" v-model="newMovie.director" />
-    </p>
-    <p>
-      Is English:
-      <input type="text" v-model="newMovie.english" />
-    </p>
-    <button v-on:click="createMovie()">Create</button>
-  </div>
+  <form>
+    <div>
+      <h1>Create Movie</h1>
+      <p>
+        Title:
+        <input type="text" id="title" name="newMovie" value="Example Title" required />
+      </p>
+      <p>
+        Year:
+        <input type="text" id="year" name="newMovie" value="Example year" required />
+      </p>
+      <p>
+        Plot:
+        <input type="text" id="plot" name="newMovie" value="Example plot" required />
+      </p>
+      <p>
+        Director:
+        <input type="text" id="director" name="newMovie" value="Example director" required />
+      </p>
+      <button v-on:click="createMovie()">Create</button>
+    </div>
+  </form>
 </template>
+
+<style>
+input:invalid {
+  border: 2px dashed red;
+}
+
+input:invalid:required {
+  background-image: linear-gradient(to right, pink, lightgreen);
+}
+
+input:valid {
+  border: 2px solid black;
+}
+</style>

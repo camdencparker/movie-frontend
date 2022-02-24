@@ -54,4 +54,8 @@ export default {
   </div>
 </template>
 
-<style></style>
+<style>
+p {
+  background-image: url("/rick.jpg");
+}
+</style>
